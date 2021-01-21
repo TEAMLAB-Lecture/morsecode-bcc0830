@@ -63,7 +63,7 @@ def get_cleaned_english_sentence(raw_english_sentence):
         if i == '.' or i == ',' or i == '!' or i == '?':
             continue
         temp.append(i)
-    return ''.join(temp).lstrip().rstrip().upper()
+    return ''.join(temp).lstrip().rstrip()
 
 def decoding_character(morse_character):
     morse_code_dict = get_morse_code_dict()
@@ -93,7 +93,7 @@ def decoding_sentence(morse_sentence):
 
 def encoding_sentence(english_sentence):
     morse_code_dict = get_morse_code_dict()
-    english_sentence.lstrip().rstrip()
+    english_sentence.lstrip().rstrip().upper()
     english_sentence.replace('.', '').replace(',', '').replace('!', '').replace('?', '')
     ans = []
     for i in english_sentence.split():
