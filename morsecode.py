@@ -38,9 +38,10 @@ def is_validated_english_sentence(user_input):
             return False
     temp = []
     for i in user_input.split():
-        if i == '.' or i == ',' or i == '!' or i == '?':
-            continue
-        temp.append(i)
+        for j in i:
+            if j == '.' or j == ',' or j == '!' or j == '?':
+                continue
+            temp.append(j)
     if not temp:
         return False
     return True
@@ -94,11 +95,7 @@ def decoding_sentence(morse_sentence):
 def encoding_sentence(english_sentence):
     morse_code_dict = get_morse_code_dict()
     english_sentence = english_sentence.lstrip().rstrip().upper()
-    temp = []
-    for i in english_sentence:
-        if i != '.' and i != ',' and i != '?' and i != '!':
-            temp.append(i)
-    english_sentence = ''.join(temp)
+    english_sentence = english_sentence.replace('.', '').replace(',', '').replace('!', '').replace('?', '')
     ans = []
     for i in english_sentence.split():
         res = []
