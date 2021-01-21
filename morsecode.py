@@ -94,7 +94,11 @@ def decoding_sentence(morse_sentence):
 def encoding_sentence(english_sentence):
     morse_code_dict = get_morse_code_dict()
     english_sentence = english_sentence.lstrip().rstrip().upper()
-    english_sentence = english_sentence.replace('.', '').replace(',', '').replace('!', '').replace('?', '')
+    temp = []
+    for i in english_sentence:
+        if i != '.' and i != ',' and i != '?' and i != '!':
+            temp.append(i)
+    english_sentence = ''.join(temp)
     ans = []
     for i in english_sentence.split():
         res = []
